@@ -29,7 +29,7 @@ export const store = reactive({
     
     education: [
         {
-            image: '/src/assets/logo/deakin.svg',
+            image: '/assets/logo/deakin.svg',
             title: 'Bachelor of Computer Science',
             title_url: '',
             subtitle: 'Deakin University, Melbourne Burwood Campus',
@@ -41,7 +41,7 @@ export const store = reactive({
             ]
         },
         {
-            image: '/src/assets/logo/cva.png',
+            image: '/assets/logo/cva.png',
             title: 'National High School Graduation Certificate (Vietnam)',
             title_url: '',
             subtitle: 'Chu Van An National High School, Hanoi',
