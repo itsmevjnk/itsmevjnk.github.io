@@ -6,7 +6,7 @@ import { useRoute } from 'vue-router';
 <template>
     <nav>
         <div class="mobile-navbar">
-            <span class="bold">{{ routes.find(route => route.to == this.$route.path).name }}</span>
+            <span class="bold">{{ routes.find(route => route.to == useRoute().path).name }}</span>
             <div @click="mobile_expanded = !mobile_expanded;" class="btn">
                 <img class="icon" src="../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="Expand menu" v-if="mobile_expanded == false"/>
                 <img class="icon" src="../assets/icons/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Hide menu" v-else/>
