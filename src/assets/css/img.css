@@ -1,0 +1,29 @@
+/* responsive images */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* used for icons */
+img.icon {
+    width: 2rem;
+    flex: 0;
+}
+
+img.invert {
+    filter: invert(1);
+}
+
+/* used for avatar image */
+img.avatar {
+    width: 20%;
+    height: 20%;
+    border-radius: 100vh;
+}
+
+@media(max-width: 575px) { /* L5 */
+    img.avatar {
+        width: 45%;
+        height: 45%;
+    }
+}

@@ -1,0 +1,29 @@
+/* import other styles */
+@import url("container.css");
+@import url("utils.css");
+@import url("colour-styling.css");
+@import url("img.css");
+@import url("header-elem.css");
+@import url("transition.css");
+
+body {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+}
+
+main {
+    padding: 1.25rem 0;
+}
+
+div#app {
+    display: flex; flex-direction: column; min-height: 100vh; /* stick footer to bottom of page */
+}
+
+@media print {
+    /* whiten background for print */
+    body {
+        background-color: white;
+    }
+}

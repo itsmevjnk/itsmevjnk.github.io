@@ -1,0 +1,3 @@
+/* link hover effect */
+a { transition: 0.5s; }
+a:not(.no-effect):hover { color: #f45050; }
