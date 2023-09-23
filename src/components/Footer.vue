@@ -4,7 +4,17 @@ import { store } from '../info.js';
 
 <template>
     <footer class="container-pad">
-        <span>&copy; 2023 Thanh Vinh Nguyen (itsmevjnk)</span>
+        <div class="info-container">
+            <div>&copy; 2023 Thanh Vinh Nguyen (itsmevjnk)</div>
+            <div class="footer-icons">
+                <a v-bind:href="'mailto:' + store.email" class="footer-icon">
+                    <img class="icon invert" src="../assets/icons/mail_FILL0_wght400_GRAD0_opsz48.svg" alt="mail"/>
+                </a>
+                <a v-bind:href="store.gh_account" class="footer-icon" target="_blank">
+                    <img class="icon" src="../assets/icons/github-mark-white.svg" alt="GitHub"/>
+                </a>
+            </div>
+        </div>
         <a v-if="store.gh_source !== ''" v-bind:href="store.gh_source" target="_blank">View on GitHub</a>
     </footer>
 </template>
@@ -36,6 +46,31 @@ footer {
         text-align: center;
         padding: 0.1rem 0;
     }
+
+    .info-container {
+        align-items: center;
+    }
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: row;
+    margin: 0.25rem 0;
+}
+
+.footer-icons a {
+    opacity: 0.6;
+    transition: 0.25s;
+    margin: 0 0.25rem;
+}
+
+.footer-icons a:hover {
+    opacity: 1;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
 }
 
 @media print {
