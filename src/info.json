@@ -22,10 +22,9 @@
         {
             "image": "/assets/logo/deakin.svg",
             "title": "Bachelor of Computer Science",
-            "title_url": "",
             "subtitle": "Deakin University, Melbourne Burwood Campus",
             "subtitle_url": "https://www.deakin.edu.au/",
-            "period": "July 2023 - now",
+            "date": "July 2023 - now",
             "points": [
                 "Expected completion date: June 2026",
                 "Major: Robotics (will commence in 2024)"
@@ -34,10 +33,9 @@
         {
             "image": "/assets/logo/cva.png",
             "title": "National High School Graduation Certificate (Vietnam)",
-            "title_url": "",
             "subtitle": "Chu Van An National High School, Hanoi",
             "subtitle_url": "https://c3chuvanan.edu.vn/",
-            "period": "August 2020 - June 2023",
+            "date": "August 2020 - June 2023",
             "points": [
                 "Major: Physics",
                 "Achieved First Prize at 2022-2023 Hanoi Physics Olympiad"
@@ -47,36 +45,29 @@
 
     "projects": [
         {
-            "image": "",
             "title": "Wireless PlayStation 2 controller alternative",
             "title_url": "https://github.com/itsmevjnk/Arduino-PS2X_AltRadio",
             "subtitle": "Investigation for the 2023 Vietnam Robotics Challenge",
-            "subtitle_url": "",
-            "period": "September 2022 - June 2023",
+            "date": "September 2022 - June 2023",
             "points": [
                 "Aimed to rectify reliability issues present in available controllers",
                 "Developed a paired transmitter and receiver operating on the sub-GHz and 2.4GHz bands"
             ]
         },
         {
-            "image": "",
             "title": "Arduino PlayStation 2 controller library",
             "title_url": "https://github.com/itsmevjnk/Arduino-PS2X",
             "subtitle": "Bug fixes",
-            "subtitle_url": "",
-            "period": "August 2022 - September 2022",
+            "date": "August 2022 - September 2022",
             "points": [
                 "Fixed protocol timing bug and added support for ESP32 platform",
                 "Implemented alternate functions for ease of use"
             ]
         },
         {
-            "image": "",
             "title": "Event website WordPress template",
-            "title_url": "",
             "subtitle": "Developed for high school club fair event, source code not public",
-            "subtitle_url": "",
-            "period": "December 2021",
+            "date": "December 2021",
             "points": [
                 "Includes static pages (Home and About us), posts list display by category/tag, and single post display templates",
                 "Reached production-ready status in 7 days",
@@ -84,12 +75,10 @@
             ]
         },
         {
-            "image": "",
             "title": "Facebook post data scraping tool",
             "title_url": "https://github.com/itsmevjnk/HRng",
             "subtitle": "Personal open-source software project",
-            "subtitle_url": "",
-            "period": "February 2021 - now",
+            "date": "February 2021 - now",
             "points": [
                 "Geared towards usage for checking completion of content seeding tasks",
                 "Written in Python (as prototype) and C# (as final product)"

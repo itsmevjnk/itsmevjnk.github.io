@@ -1,15 +1,18 @@
 <template>
     <section class="list-item" v-for="item in list">
-        <img v-if="item.image !== ''" v-bind:src="item.image"/>
+        <img v-if="item.image !== undefined" v-bind:src="item.image"/>
         <div>
-            <i>{{ item.period }}</i>
+            <i>{{ item.date }}</i>
             <h4 class="my0">
-                <a v-bind:href="item.title_url" v-if="item.title_url !== ''" target="_blank">{{ item.title }}</a>
+                <a v-bind:href="item.title_url" v-if="item.title_url !== undefined" target="_blank">{{ item.title }}</a>
                 <span v-else>{{ item.title }}</span>
             </h4>
-            <a v-bind:href="item.subtitle_url" v-if="item.subtitle_url !== ''" target="_blank">{{ item.subtitle }}</a>
-            <span class="mb2" v-else>{{ item.subtitle }}</span>
-            <ul>
+            <template v-if="item.subtitle !== undefined">
+                <a v-bind:href="item.subtitle_url" v-if="item.subtitle_url !== undefined" target="_blank">{{ item.subtitle }}</a>
+                <span class="mb2" v-else>{{ item.subtitle }}</span>
+            </template>
+            <p v-if="item.content !== undefined">{{ item.content }}</p>
+            <ul v-if="item.points !== undefined">
                 <li v-for="point in item.points">{{ point }}</li>
             </ul>
         </div>
