@@ -1,5 +1,5 @@
 <script setup>
-import { store } from '../info.js';
+import store from '../info.json';
 import { useRoute } from 'vue-router';
 </script>
 
