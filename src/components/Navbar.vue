@@ -5,6 +5,11 @@ import { useRoute } from 'vue-router';
 
 <template>
     <nav>
+        <!-- for desktop -->
+        <div class="navbar-items container-pad-n desktop">
+            <router-link v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</router-link>
+        </div>
+        <!-- for mobile -->
         <div class="mobile-navbar">
             <span class="bold">{{ routes.find(route => route.to == useRoute().path).name }}</span>
             <div @click="mobile_expanded = !mobile_expanded;" class="btn">
@@ -12,9 +17,11 @@ import { useRoute } from 'vue-router';
                 <img class="icon" src="../assets/icons/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Hide menu" v-else/>
             </div>
         </div>
-        <div class="navbar-items container-pad-n" v-show="mobile_expanded == true">
-            <router-link v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</router-link>
-        </div>
+        <transition>
+            <div class="navbar-items container-pad-n mobile" v-if="mobile_expanded">
+                <router-link v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</router-link>
+            </div>
+        </transition>
     </nav>
 </template>
 
@@ -31,6 +38,12 @@ export default {
             mobile_expanded: false, // set when mobile navbar is expanded
         };
     },
+
+    computed: {
+        navbar_height() {
+            return (3.2 * this.routes.length) + 'rem';
+        }
+    }
 };
 </script>
 
@@ -50,6 +63,7 @@ export default {
     transition: 0.5s;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    line-height: 1.2; /* to standardise for wipe animations */
 }
 
 .navbar-items a:not(.router-link-active):hover {
@@ -68,6 +82,10 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin: 0;
+}
+
+.navbar-items.mobile {
+    overflow: hidden;
 }
 
 .mobile-navbar span {
@@ -94,9 +112,33 @@ export default {
     filter: invert(0);
 }
 
+@keyframes nav-wipe-down {
+    0% {
+        max-height: 0;
+    }
+
+    100% {
+        max-height: v-bind('navbar_height');
+    }
+}
+
+.v-enter-active {
+    animation: nav-wipe-down 0.5s ease-out;
+}
+
+.v-leave-active {
+    animation: nav-wipe-down 0.5s ease-in reverse;
+}
+
+
+
 @media(max-width: 575px) {
     .navbar-items {
         flex-direction: column;
+    }
+
+    .navbar-items.desktop {
+        display: none;
     }
 
     .navbar-items a {
@@ -116,8 +158,8 @@ export default {
 }
 
 @media(min-width: 576px) {
-    .navbar-items {
-        display: flex !important; /* force flex */
+    .navbar-items.mobile {
+        display: none;
     }
 
     .navbar-items a.pin {
