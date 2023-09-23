@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             routes: [
-                { to: "/", name: "About me", pin: false },
+                { to: "/", name: "Home", pin: false },
                 { to: "/projects", name: "Projects", pin: false },
                 { to: "/cv", name: "Resume", pin: true }
             ],

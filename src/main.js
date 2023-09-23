@@ -15,11 +15,12 @@ import Projects from './components/Projects.vue'
 import Resume from './components/Resume.vue'
 import MoreTabs from './components/MoreTabs.vue'
 import List from './components/List.vue'
+import Home from './components/Home.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: AboutMe },
+        { path: '/', component: Home },
         { path: '/projects', component: Projects },
         { path: '/cv', component: Resume }
     ]
