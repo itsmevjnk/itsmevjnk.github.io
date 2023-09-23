@@ -63,7 +63,6 @@ export default {
     transition: 0.5s;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    line-height: 1.2; /* to standardise for wipe animations */
 }
 
 .navbar-items a:not(.router-link-active):hover {
