@@ -31,9 +31,8 @@ export default {
         return {
             routes: [
                 { to: "/", name: "About me", pin: false },
-                { to: "/edu", name: "Education", pin: false },
                 { to: "/projects", name: "Projects", pin: false },
-                { to: "/all", name: "All sections", pin: true }
+                { to: "/cv", name: "Resume", pin: true }
             ],
             mobile_expanded: false, // set when mobile navbar is expanded
         };

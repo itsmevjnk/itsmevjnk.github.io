@@ -12,7 +12,7 @@ import Navbar from './components/Navbar.vue'
 import AboutMe from './components/AboutMe.vue'
 import Education from './components/Education.vue'
 import Projects from './components/Projects.vue'
-import AllSections from './components/AllSections.vue'
+import Resume from './components/Resume.vue'
 import MoreTabs from './components/MoreTabs.vue'
 import List from './components/List.vue'
 
@@ -20,9 +20,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: AboutMe },
-        { path: '/edu', component: Education },
         { path: '/projects', component: Projects },
-        { path: '/all', component: AllSections }
+        { path: '/cv', component: Resume }
     ]
 })
 
