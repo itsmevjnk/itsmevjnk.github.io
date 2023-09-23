@@ -29,6 +29,14 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router)
 
+app.directive('no-ctx-menu', {
+    mounted: (e) => {
+        e.addEventListener('contextmenu', (ev) => {
+            if(ev.button == 2) ev.preventDefault();
+        });
+    }
+});
+
 app.component('comp-header', Header)
 app.component('comp-footer', Footer)
 app.component('comp-navbar', Navbar)

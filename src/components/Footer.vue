@@ -8,10 +8,10 @@ import store from '../info.json';
             <div>&copy; 2023 Thanh Vinh Nguyen (itsmevjnk)</div>
             <div class="footer-icons">
                 <a v-bind:href="'mailto:' + store.email" class="footer-icon">
-                    <img class="icon invert" src="../assets/icons/mail_FILL0_wght400_GRAD0_opsz48.svg" alt="mail"/>
+                    <img class="icon invert" src="../assets/icons/mail_FILL0_wght400_GRAD0_opsz48.svg" alt="mail" v-no-ctx-menu/>
                 </a>
                 <a v-bind:href="store.gh_account" class="footer-icon" target="_blank">
-                    <img class="icon" src="../assets/icons/github-mark-white.svg" alt="GitHub"/>
+                    <img class="icon" src="../assets/icons/github-mark-white.svg" alt="GitHub" v-no-ctx-menu/>
                 </a>
             </div>
         </div>
