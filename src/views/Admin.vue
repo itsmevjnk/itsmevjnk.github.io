@@ -120,14 +120,15 @@ export default {
         },
 
         handle_edit_selection(event) {
-            if(this.edit_post.editing && this.edit_post.idx == parseInt(event.target.dataset.idx)) return; // don't do anything; we're selecting the same post
+            let idx = parseInt(event.target.closest('[data-id]').dataset.idx);
+            if(this.edit_post.editing && this.edit_post.idx == idx) return; // don't do anything; we're selecting the same post
             
             this.edit_post.content_fetched = false;
             this.edit_post.content = 'Loading...';
             this.edit_post.error = null;
             this.edit_post.editing = true;
-            this.edit_post.idx = event.target.closest('[data-id]').dataset.idx;
-            this.edit_post.old_title = this.posts.list[this.edit_post.idx].title;
+            this.edit_post.idx = idx;
+            this.edit_post.old_title = this.posts.list[idx].title;
 
             // console.log(event.target);
             let id = event.target.closest('[data-id]').dataset.id;
@@ -151,7 +152,7 @@ export default {
                 this.edit_post.editing = !result;
                 this.edit_post.error = msg;
                 if(result) this.do_query_posts();
-            })
+            });
         },
 
         handle_edit_cancel(event) {
@@ -177,7 +178,7 @@ export default {
             });
         },
 
-        handle_delete_post() {
+        handle_delete_post(event) { 
             this.edit_post.input_disabled = true;
             delete_post(this.posts.list[this.edit_post.idx].id, (result, message) => {
                 this.edit_post.input_disabled = false;
