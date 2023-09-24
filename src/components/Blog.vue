@@ -3,26 +3,30 @@ import { query_posts, fetch_post } from '../blog.js';
 </script>
 
 <template>
-    <article v-if="single.loaded">
-        <a href="/blog" class="back-container inert" @click="back_to_posts">
-            <img class="icon mini" src="../assets/icons/arrow_back_FILL0_wght400_GRAD0_opsz24.svg" alt="back">
-            <span>Back to posts</span>
-        </a>
-        <section class="my3">
-            <h3 class="my1">{{ single.title }}</h3>
-            <span>{{ single.ctime }} UTC</span> <a :href="'/blog?id=' + single.id" @click="get_link">Copy link</a>
-        </section>
-        <section class="post-content">{{ single.content }}</section>
-    </article>
-    <div v-if="posts.loaded">
-        <!-- posts list -->
-        <a v-for="post in posts.list" :data-id="post.id" :href="'/blog?id=' + post.id" @click="display_post" class="inert">
-            <article class="item">
-                <h3 class="my1">{{ post.title }}</h3>            
-                <div>{{ post.ctime }} UTC</div>
-            </article>
-        </a>
-    </div>
+    <Transition>
+        <article v-if="single.loaded">
+            <a href="/blog" class="back-container inert" @click="back_to_posts">
+                <img class="icon mini" src="../assets/icons/arrow_back_FILL0_wght400_GRAD0_opsz24.svg" alt="back">
+                <span>Back to posts</span>
+            </a>
+            <section class="my3">
+                <h3 class="my1">{{ single.title }}</h3>
+                <span>{{ single.ctime }} UTC</span> <a :href="'/blog?id=' + single.id" @click="get_link">Copy link</a>
+            </section>
+            <section class="post-content">{{ single.content }}</section>
+        </article>
+    </Transition>
+    <Transition>
+        <div v-if="posts.loaded">
+            <!-- posts list -->
+            <a v-for="post in posts.list" :data-id="post.id" :href="'/blog?id=' + post.id" @click="display_post" class="inert">
+                <article class="item">
+                    <h3 class="my1">{{ post.title }}</h3>            
+                    <div>{{ post.ctime }} UTC</div>
+                </article>
+            </a>
+        </div>
+    </Transition>
 </template>
 
 <script>
@@ -133,5 +137,16 @@ a.back-container span {
 section.post-content {
     white-space: pre-wrap;
 }
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
 </style>
 
