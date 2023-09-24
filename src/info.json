@@ -54,6 +54,26 @@
 
     "projects": [
         {
+            "title": "Public drawing canvas application",
+            "title_url": "https://github.com/itsmevjnk/pcanvas",
+            "subtitle": "Written for the SIT120 2.2C, 3.1D and 4.1/4.2HD tasks",
+            "date": "August 2023 - September 2023",
+            "points": [
+                "Frontend developed using HTML, CSS and JavaScript (Vue 3 SFC)",
+                "Backend developed using JavaScript (Node.js) and data management with MySQL"
+            ]
+        },
+        {
+            "title": "Portfolio website",
+            "title_url": "http://itsmevjnk.mooo.com",
+            "subtitle": "Written for the SIT120 1.3P and 3.2D tasks",
+            "date": "August 2023 - September 2023",
+            "points": [
+                "Frontend developed using HTML, CSS and JavaScript (Vue 3 SFC)",
+                "Backend developed using PHP and data management with MySQL"
+            ]
+        },
+        {
             "title": "Wireless PlayStation 2 controller alternative",
             "title_url": "https://github.com/itsmevjnk/Arduino-PS2X_AltRadio",
             "subtitle": "Investigation for the 2023 Vietnam Robotics Challenge",
