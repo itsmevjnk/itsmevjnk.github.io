@@ -10,7 +10,7 @@ import { query_posts, fetch_post } from '../blog.js';
                 <span>Back to posts</span>
             </a>
             <section class="my3">
-                <h3 class="my1">{{ single.title }}</h3>
+                <h2 class="my1">{{ single.title }}</h2>
                 <span>{{ single.ctime }} UTC</span> <a :href="'/blog?id=' + single.id" @click="get_link">Copy link</a>
             </section>
             <section class="post-content">{{ single.content }}</section>
@@ -19,12 +19,16 @@ import { query_posts, fetch_post } from '../blog.js';
     <Transition>
         <div v-if="posts.loaded">
             <!-- posts list -->
+            <h2>Blog</h2>
             <a v-for="post in posts.list" :data-id="post.id" :href="'/blog?id=' + post.id" @click="display_post" class="inert">
                 <article class="item">
                     <h3 class="my1">{{ post.title }}</h3>            
                     <div>{{ post.ctime }} UTC</div>
                 </article>
             </a>
+            <div v-if="posts.list.length == 0">
+                Unfortunately, this page is currently empty. Come back later for new posts!
+            </div>
         </div>
     </Transition>
 </template>
