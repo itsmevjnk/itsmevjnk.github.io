@@ -11,7 +11,7 @@ import { useRoute } from 'vue-router';
         </div>
         <!-- for mobile -->
         <div class="mobile-navbar">
-            <span class="bold">{{ routes.find(route => route.to == useRoute().path).name }}</span>
+            <span class="bold">{{ (current_route == undefined) ? '' : current_route.name }}</span>
             <div @click="mobile_expanded = !mobile_expanded;" class="btn">
                 <img class="icon" src="../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="Expand menu" v-if="mobile_expanded == false" v-no-ctx-menu/>
                 <img class="icon" src="../assets/icons/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Hide menu" v-else v-no-ctx-menu/>
@@ -41,6 +41,10 @@ export default {
     computed: {
         navbar_height() {
             return (3.2 * this.routes.length) + 'rem';
+        },
+
+        current_route() {
+            return this.routes.find(route => route.to == useRoute().path);
         }
     }
 };

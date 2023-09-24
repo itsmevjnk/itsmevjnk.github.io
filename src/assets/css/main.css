@@ -5,6 +5,8 @@
 @import url("img.css");
 @import url("header-elem.css");
 @import url("transition.css");
+@import url("form.css");
+@import url("blog.css");
 
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;

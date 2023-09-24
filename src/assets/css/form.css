@@ -1,0 +1,38 @@
+.form-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+}
+
+.form-input input,
+.form-input textarea {
+    padding: 0.5rem;
+}
+
+.form-input input[type=text],
+.form-input input[type=password] {
+    width: 20rem;
+}
+
+.form-input.inline {
+    flex-direction: row;
+}
+
+button {
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    transition: 0.25s;
+    outline: none;
+    border: 1px solid #3c486b;
+    border-radius: 0.5rem;
+}
+
+button:hover {
+    background-color: #3c486b;
+    color: white;
+}
+
+textarea, input {
+    font-family: inherit;
+    font-size: inherit;
+}

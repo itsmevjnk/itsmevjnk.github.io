@@ -6,5 +6,15 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 { color: white;
 a { color: #3c486b; }
 a:visited { color: inherit; }
 
+.warning {
+    background-color: #f9d949;
+    color: black;
+}
+
+.info {
+    background-color: #3c486b;
+    color: white;
+}
+
 /* suppress hyperlink color and decorations in header and footer */
 a.nocolor, header a, footer a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; text-decoration: none; }

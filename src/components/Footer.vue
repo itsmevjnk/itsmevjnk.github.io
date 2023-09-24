@@ -1,4 +1,5 @@
 <script setup>
+import { logged_in } from '../auth.js';
 import store from '../info.json';
 </script>
 
@@ -15,7 +16,10 @@ import store from '../info.json';
                 </a>
             </div>
         </div>
-        <a v-if="store.gh_source !== ''" v-bind:href="store.gh_source" target="_blank">View on GitHub</a>
+        <div>
+            <a v-if="store.gh_source !== ''" v-bind:href="store.gh_source" target="_blank">View on GitHub</a><br/>
+            <router-link to="/admin">{{ (logged_in) ? 'Admin control panel' : 'Admin login' }}</router-link>
+        </div>
     </footer>
 </template>
 
