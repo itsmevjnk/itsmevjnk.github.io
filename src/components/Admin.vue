@@ -22,7 +22,7 @@ import axios from 'axios';
         </div>
     </section>
     <section v-else>
-        <h2>Blog Administration</h2>
+        <h2 class="mb1">Blog Administration</h2>
         <div>
             <a href="#" @click="handle_logout">Log out</a>
         </div>
@@ -34,7 +34,7 @@ import axios from 'axios';
             </article>
             <article class="item" v-for="(post, idx) in posts.list" @click="handle_edit_selection" :data-id="post.id" :data-idx="idx" :class="{ selectable: !edit_post.editing || (edit_post.idx != idx && !(isNaN(idx) && isNaN(edit_post.idx))) }">
                 <template v-if="!edit_post.editing || (edit_post.idx != idx)">
-                    <h3>{{ post.title }}</h3>
+                    <h3 class="my1">{{ post.title }}</h3>
                     <div>{{ post.ctime }} UTC</div>
                     <i>ID: {{ post.id }}</i>
                 </template>
