@@ -69,12 +69,12 @@ export default {
     border-top-right-radius: 1rem;
 }
 
-.navbar-items a:not(.RouterLink-active):hover {
+.navbar-items a:not(.router-link-active):hover {
     background-color: var(--pal-yellow);
     color: black !important;
 }
 
-.navbar-items a.RouterLink-active {
+.navbar-items a.router-link-active {
     background-color: var(--pal-white);
     color: black !important;
 }
