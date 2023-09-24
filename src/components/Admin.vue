@@ -6,7 +6,7 @@ import axios from 'axios';
 
 <template>
     <form v-if="!logged_in"  @submit.prevent="handle_login">
-        <div class="alert warning" v-if="login_form.error != null">Login/registration failed ({{ login_form.error }})</div>
+        <div class="alert error" v-if="login_form.error != null">Login/registration failed ({{ login_form.error }})</div>
         <h2>Administration Login</h2>
         <div class="form-input">
             <label for="login_user">User name:</label>
@@ -39,7 +39,7 @@ import axios from 'axios';
                     <i>ID: {{ post.id }}</i>
                 </template>
                 <form v-else @submit.prevent="handle_edit_save">
-                    <div class="alert warning" v-if="edit_post.error != null">Operation failed ({{ edit_post.error }})</div>
+                    <div class="alert error" v-if="edit_post.error != null">Operation failed ({{ edit_post.error }})</div>
                     <div class="form-input">
                         <label for="post_title">Title:</label>
                         <input type="text" v-model="post.title" name="post_title" id="post_title" class="post" :disabled="edit_post.input_disabled" required>
@@ -51,7 +51,7 @@ import axios from 'axios';
                     <div class="button-group center">
                         <button type="submit" :disabled="edit_post.input_disabled">{{ (isNaN(post.id)) ? 'Add' : 'Save' }}</button>
                         <button @click.prevent="handle_edit_cancel" :disabled="edit_post.input_disabled">Cancel</button>
-                        <button class="warn" @click.prevent="handle_delete_post" :disabled="edit_post.input_disabled" v-if="!isNaN(post.id)">Delete</button>
+                        <button class="delete" @click.prevent="handle_delete_post" :disabled="edit_post.input_disabled" v-if="!isNaN(post.id)">Delete</button>
                     </div>
                 </form>
             </article>
@@ -225,12 +225,12 @@ input.post {
     width: initial;
 }
 
-button.warn {
-    border-color: #f9d949;
+button.delete {
+    border-color: var(--pal-red);
 }
 
-button.warn:hover {
-    background-color: #f9d949;
+button.delete:hover {
+    background-color: var(--pal-red);
     color: black;
 }
 </style>

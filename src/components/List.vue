@@ -32,7 +32,7 @@ section.list-item {
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 1rem;
-    border: 2px solid #3c486b;
+    border: 2px solid var(--pal-blue);
     display: flex;
     flex-direction: row;
     align-items: start;

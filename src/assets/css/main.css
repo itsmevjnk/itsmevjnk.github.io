@@ -1,4 +1,5 @@
 /* import other styles */
+@import url("palette.css");
 @import url("container.css");
 @import url("utils.css");
 @import url("colour-styling.css");
@@ -13,7 +14,7 @@ body {
     margin: 0;
     font-size: 1rem;
     line-height: 1.2;
-    background-color: #f0f0f0;
+    background-color: var(--pal-white);
 }
 
 main {

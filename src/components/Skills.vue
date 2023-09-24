@@ -31,7 +31,7 @@ import store from '../info.json';
 }
 
 .bar-container {
-    border: 2px solid #3c486b;
+    border: 2px solid var(--pal-blue);
     border-radius: 100vh;
     width: 100%;
     box-sizing: border-box;
@@ -39,7 +39,7 @@ import store from '../info.json';
 
 .bar {
     height: 1.25rem;
-    background-color: #3c486b;
+    background-color: var(--pal-blue);
     display: flex;
     align-items: center;
     justify-content: flex-end;

@@ -1,3 +1,5 @@
+@import url("./palette.css");
+
 .form-input {
     display: flex;
     flex-direction: column;
@@ -20,19 +22,30 @@
 
 button {
     padding: 0.5rem 0.75rem;
-    background-color: white;
+    background-color: var(--pal-white);
     transition: 0.25s;
     outline: none;
-    border: 1px solid #3c486b;
+    border: 1px solid var(--pal-blue);
     border-radius: 0.5rem;
 }
 
 button:hover {
-    background-color: #3c486b;
-    color: white;
+    background-color: var(--pal-blue);
+    color: var(--pal-white);
 }
 
 textarea, input {
     font-family: inherit;
     font-size: inherit;
+}
+
+@media print {
+    /* whiten for printing */
+    button {
+        background-color: white;
+    }
+
+    button:hover {
+        color: white;
+    }
 }

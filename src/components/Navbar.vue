@@ -70,12 +70,12 @@ export default {
 }
 
 .navbar-items a:not(.router-link-active):hover {
-    background-color: #f9d949;
+    background-color: var(--pal-yellow);
     color: black !important;
 }
 
 .navbar-items a.router-link-active {
-    background-color: #f0f0f0;
+    background-color: var(--pal-white);
     color: black !important;
 }
 
@@ -108,7 +108,7 @@ export default {
 
 .mobile-navbar div.btn:hover {
     cursor: pointer;
-    background-color: #f9d949;
+    background-color: var(--pal-yellow);
 }
 
 .mobile-navbar div.btn:hover img {
@@ -156,7 +156,7 @@ export default {
     }
 
     .navbar-items a {
-        border-bottom: 1px solid #3c486b;
+        border-bottom: 1px solid var(--pal-blue);
     }
 }
 

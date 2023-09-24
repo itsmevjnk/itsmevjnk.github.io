@@ -1,3 +1,5 @@
+@import url("./palette.css");
+
 /* link hover effect */
 a { transition: 0.5s; }
-a:not(.no-effect):hover { color: #f45050; }
+a:not(.no-effect):hover { color: var(--pal-red); }
