@@ -1,5 +1,6 @@
 <template>
     <comp-aboutme/>
+    <comp-skills/>
     <comp-edu/>
     <comp-projects/>
     <section class="print-btn">

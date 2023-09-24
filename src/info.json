@@ -16,7 +16,16 @@
 
     "about": "I am a hardworking first-year computer science student with a passion for programming and discovering, as well as a great attention to detail and a continuing pursuit for perfection. Having been writing programs and designing embedded systems as a hobby from a young age, I gained a variety of knowledge and experience in the field, and I am confident in my ability to apply them into more sophisticated projects. I am always seeking new challenges to overcome and gain more experience from.",
     
-    
+    "skills": {
+        "C/C++": 0.85,
+        "C#": 0.65,
+        "Python": 0.8,
+        "HTML": 0.75,
+        "CSS": 0.65,
+        "JavaScript": 0.75,
+        "PHP": 0.6,
+        "SQL": 0.5
+    },
 
     "education": [
         {

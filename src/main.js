@@ -18,6 +18,7 @@ import List from './components/List.vue'
 import Home from './components/Home.vue'
 import Admin from './components/Admin.vue'
 import Blog from './components/Blog.vue'
+import Skills from './components/Skills.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -46,6 +47,7 @@ app.component('comp-footer', Footer)
 app.component('comp-navbar', Navbar)
 
 app.component('comp-aboutme', AboutMe)
+app.component('comp-skills', Skills)
 app.component('comp-edu', Education)
 app.component('comp-projects', Projects)
 
