@@ -1,6 +1,6 @@
 <script setup>
 import { logged_in, login, register, logout } from '../auth.js';
-import { query_posts, fetch_post, add_edit_post } from '../blog.js';
+import { query_posts, fetch_post, add_edit_post, delete_post } from '../blog.js';
 import axios from 'axios';
 </script>
 
@@ -39,7 +39,7 @@ import axios from 'axios';
                     <i>ID: {{ post.id }}</i>
                 </template>
                 <form v-else @submit.prevent="handle_edit_save">
-                    <div class="alert warning" v-if="edit_post.error != null">Cannot add/edit post ({{ edit_post.error }})</div>
+                    <div class="alert warning" v-if="edit_post.error != null">Operation failed ({{ edit_post.error }})</div>
                     <div class="form-input">
                         <label for="post_title">Title:</label>
                         <input type="text" v-model="post.title" name="post_title" id="post_title" class="post" :disabled="edit_post.input_disabled" required>
@@ -51,6 +51,7 @@ import axios from 'axios';
                     <div class="button-group center">
                         <button type="submit" :disabled="edit_post.input_disabled">{{ (isNaN(post.id)) ? 'Add' : 'Save' }}</button>
                         <button @click.prevent="handle_edit_cancel" :disabled="edit_post.input_disabled">Cancel</button>
+                        <button class="warn" @click.prevent="handle_delete_post" :disabled="edit_post.input_disabled" v-if="!isNaN(post.id)">Delete</button>
                     </div>
                 </form>
             </article>
@@ -119,7 +120,7 @@ export default {
         },
 
         handle_edit_selection(event) {
-            if(this.edit_post.editing && edit_post.idx == parseInt(event.target.dataset.idx)) return; // don't do anything; we're selecting the same post
+            if(this.edit_post.editing && this.edit_post.idx == parseInt(event.target.dataset.idx)) return; // don't do anything; we're selecting the same post
             
             this.edit_post.content_fetched = false;
             this.edit_post.content = 'Loading...';
@@ -128,7 +129,7 @@ export default {
             this.edit_post.idx = event.target.closest('[data-id]').dataset.idx;
             this.edit_post.old_title = this.posts.list[this.edit_post.idx].title;
 
-            console.log(event.target);
+            // console.log(event.target);
             let id = event.target.closest('[data-id]').dataset.id;
             fetch_post(id, (payload) => {
                 this.edit_post.content = payload.content;
@@ -174,6 +175,17 @@ export default {
                 ctime: '',
                 title: 'Untitled Post'
             });
+        },
+
+        handle_delete_post() {
+            this.edit_post.input_disabled = true;
+            delete_post(this.posts.list[this.edit_post.idx].id, (result, message) => {
+                this.edit_post.input_disabled = false;
+                this.edit_post.editing = !result;
+                this.edit_post.error = message;
+
+                if(result) this.do_query_posts(); // query again
+            });
         }
     }
 };
@@ -211,5 +223,14 @@ article.selectable {
 
 input.post {
     width: initial;
+}
+
+button.warn {
+    border-color: #f9d949;
+}
+
+button.warn:hover {
+    background-color: #f9d949;
+    color: black;
 }
 </style>

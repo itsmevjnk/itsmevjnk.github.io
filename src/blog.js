@@ -19,3 +19,11 @@ export function add_edit_post(payload, callback) {
         callback(false, err.response.data.message);
     });
 }
+
+export function delete_post(id, callback) {
+    axios.delete(import.meta.env.VITE_API_URL + '/blog/delete.php?id=' + id, { withCredentials: true }).then((resp) => {
+        callback(true, null);
+    }).catch((err) => {
+        callback(true, err.response.data.message);
+    });
+}
