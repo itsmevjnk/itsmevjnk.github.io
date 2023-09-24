@@ -5,7 +5,7 @@ import axios from 'axios';
 </script>
 
 <template>
-    <section v-if="!logged_in">
+    <form v-if="!logged_in"  @submit.prevent="handle_login">
         <div class="alert warning" v-if="login_form.error != null">Login/registration failed ({{ login_form.error }})</div>
         <h2>Administration Login</h2>
         <div class="form-input">
@@ -17,10 +17,10 @@ import axios from 'axios';
             <input type="password" v-model="login_form.password" name="login_pswd" id="login_pswd" required>
         </div>
         <div class="button-group">
-            <button @click="handle_login">Log in</button>
-            <button @click="handle_register">Register</button>
+            <button type="submit">Log in</button>
+            <button @click.prevent="handle_register">Register</button>
         </div>
-    </section>
+    </form>
     <section v-else>
         <h2 class="mb1">Blog Administration</h2>
         <div>
@@ -38,21 +38,21 @@ import axios from 'axios';
                     <div>{{ post.ctime }} UTC</div>
                     <i>ID: {{ post.id }}</i>
                 </template>
-                <template v-else>
+                <form v-else @submit.prevent="handle_edit_save">
                     <div class="alert warning" v-if="edit_post.error != null">Cannot add/edit post ({{ edit_post.error }})</div>
                     <div class="form-input">
                         <label for="post_title">Title:</label>
-                        <input type="text" v-model="post.title" name="post_title" id="post_title" class="post" :disabled="edit_post.input_disabled">
+                        <input type="text" v-model="post.title" name="post_title" id="post_title" class="post" :disabled="edit_post.input_disabled" required>
                     </div>
                     <div class="form-input">
                         <label for="post_content">Content:</label>
                         <textarea v-model="edit_post.content" name="post_content" id="post_content" class="post" :disabled="!edit_post.content_fetched || edit_post.input_disabled"></textarea>
                     </div>
                     <div class="button-group center">
-                        <button @click="handle_edit_save" :disabled="edit_post.input_disabled">{{ (isNaN(post.id)) ? 'Add' : 'Save' }}</button>
-                        <button @click="handle_edit_cancel" :disabled="edit_post.input_disabled">Cancel</button>
+                        <button type="submit" :disabled="edit_post.input_disabled">{{ (isNaN(post.id)) ? 'Add' : 'Save' }}</button>
+                        <button @click.prevent="handle_edit_cancel" :disabled="edit_post.input_disabled">Cancel</button>
                     </div>
-                </template>
+                </form>
             </article>
         </template>
     </section>
@@ -76,6 +76,7 @@ export default {
             edit_post: {
                 editing: false,
                 idx: 0,
+                old_title: '',
                 content: '',
                 content_fetched: false,
                 input_disabled: false,
@@ -100,11 +101,13 @@ export default {
         handle_login() {
             login(this.login_form.user, this.login_form.password, (result, msg) => {
                 logged_in.value = result;
+                this.login_form.password = '';
                 this.login_form.error = (result) ? null : msg;
             });
         },
 
         handle_register() {
+            if(document.querySelector('form').reportValidity() == false) return; // not valid
             register(this.login_form.user, this.login_form.password, (result, msg) => {
                 if(!result) this.login_form.error = msg;
                 else this.handle_login(); // try logging in now
@@ -123,6 +126,7 @@ export default {
             this.edit_post.error = null;
             this.edit_post.editing = true;
             this.edit_post.idx = event.target.closest('[data-id]').dataset.idx;
+            this.edit_post.old_title = this.posts.list[this.edit_post.idx].title;
 
             console.log(event.target);
             let id = event.target.closest('[data-id]').dataset.id;
@@ -151,6 +155,7 @@ export default {
 
         handle_edit_cancel(event) {
             this.edit_post.editing = false;
+            this.posts.list[this.edit_post.idx].title = this.edit_post.old_title;
             if(this.edit_post.idx == 0 && this.posts.list.length > 0 && isNaN(this.posts.list[0].id)) this.posts.list.shift(); // remove phantom new post
 
             event.stopPropagation(); // so that edit selection won't get triggered
