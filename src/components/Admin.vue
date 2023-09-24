@@ -34,8 +34,8 @@ import axios from 'axios';
             </article>
             <article class="item" v-for="(post, idx) in posts.list" @click="handle_edit_selection" :data-id="post.id" :data-idx="idx" :class="{ selectable: !edit_post.editing || (edit_post.idx != idx && !(isNaN(idx) && isNaN(edit_post.idx))) }">
                 <template v-if="!edit_post.editing || (edit_post.idx != idx)">
-                    <div>{{ post.ctime }} UTC</div>
                     <h3>{{ post.title }}</h3>
+                    <div>{{ post.ctime }} UTC</div>
                     <i>ID: {{ post.id }}</i>
                 </template>
                 <template v-else>
