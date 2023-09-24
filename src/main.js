@@ -17,6 +17,7 @@ import MoreTabs from './components/MoreTabs.vue'
 import List from './components/List.vue'
 import Home from './components/Home.vue'
 import Admin from './components/Admin.vue'
+import Blog from './components/Blog.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -24,7 +25,8 @@ const router = createRouter({
         { path: '/', component: Home },
         { path: '/projects', component: Projects },
         { path: '/cv', component: Resume },
-        { path: '/admin', component: Admin }
+        { path: '/admin', component: Admin },
+        { path: '/blog', component: Blog }
     ]
 })
 

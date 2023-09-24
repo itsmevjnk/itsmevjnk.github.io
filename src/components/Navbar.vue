@@ -32,6 +32,7 @@ export default {
             routes: [
                 { to: "/", name: "Home", pin: false },
                 { to: "/projects", name: "Projects", pin: false },
+                { to: "/blog", name: "Blog", pin: false },
                 { to: "/cv", name: "Resume", pin: true }
             ],
             mobile_expanded: false, // set when mobile navbar is expanded

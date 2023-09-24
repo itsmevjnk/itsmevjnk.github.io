@@ -11,6 +11,10 @@ img.icon {
     user-select: none;
 }
 
+img.icon.mini {
+    width: 1rem;
+}
+
 img.invert {
     filter: invert(1);
 }
