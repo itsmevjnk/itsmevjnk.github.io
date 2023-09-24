@@ -19,7 +19,7 @@ import { useRoute, RouterLink } from 'vue-router';
         </div>
         <transition>
             <div class="navbar-items container-pad-n mobile" v-if="mobile_expanded">
-                <RouterLink v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</RouterLink>
+                <RouterLink v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }" @click="mobile_expanded = false">{{ route.name }}</RouterLink>
             </div>
         </transition>
     </nav>
