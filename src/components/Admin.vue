@@ -203,4 +203,8 @@ export default {
 article.selectable {
     cursor: pointer;
 }
+
+input.post {
+    width: initial;
+}
 </style>
