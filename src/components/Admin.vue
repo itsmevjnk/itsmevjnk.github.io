@@ -28,11 +28,11 @@ import axios from 'axios';
         </div>
         <div v-if="posts.loading">Fetching posts...</div>
         <template v-else>
-            <article @click="add_post" v-if="!(edit_post.editing && isNaN(edit_post.id))" class="add-post">
-                <img src="../assets/icons/add_FILL0_wght400_GRAD0_opsz48.svg" alt="add" class="icon">
+            <article @click="add_post" v-if="!edit_post.editing || !isNaN(edit_post.idx)" class="item add-post">
+                <img src="../assets/icons/add_FILL0_wght400_GRAD0_opsz48.svg" alt="add" class="icon" v-no-ctx-menu>
                 <span>Add new post</span>
             </article>
-            <article v-for="(post, idx) in posts.list" @click="handle_edit_selection" :data-id="post.id" :data-idx="idx">
+            <article class="item" v-for="(post, idx) in posts.list" @click="handle_edit_selection" :data-id="post.id" :data-idx="idx" :class="{ selectable: !edit_post.editing || (edit_post.idx != idx && !(isNaN(idx) && isNaN(edit_post.idx))) }">
                 <template v-if="!edit_post.editing || (edit_post.idx != idx)">
                     <div>{{ post.ctime }} UTC</div>
                     <h3>{{ post.title }}</h3>
@@ -198,5 +198,9 @@ export default {
 
 .add-post span {
     margin: 0 0.5rem;
+}
+
+article.selectable {
+    cursor: pointer;
 }
 </style>
