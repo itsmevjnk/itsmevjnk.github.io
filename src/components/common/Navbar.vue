@@ -1,25 +1,25 @@
 <script setup>
-import store from '../info.json';
-import { useRoute } from 'vue-router';
+import store from '../../info.json';
+import { useRoute, RouterLink } from 'vue-router';
 </script>
 
 <template>
     <nav>
         <!-- for desktop -->
         <div class="navbar-items container-pad-n desktop">
-            <router-link v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</router-link>
+            <RouterLink v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</RouterLink>
         </div>
         <!-- for mobile -->
         <div class="mobile-navbar">
             <span class="bold">{{ (current_route == undefined) ? '' : current_route.name }}</span>
             <div @click="mobile_expanded = !mobile_expanded;" class="btn">
-                <img class="icon" src="../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="Expand menu" v-if="mobile_expanded == false" v-no-ctx-menu/>
-                <img class="icon" src="../assets/icons/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Hide menu" v-else v-no-ctx-menu/>
+                <img class="icon" src="../../assets/icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="Expand menu" v-if="mobile_expanded == false" v-no-ctx-menu/>
+                <img class="icon" src="../../assets/icons/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Hide menu" v-else v-no-ctx-menu/>
             </div>
         </div>
         <transition>
             <div class="navbar-items container-pad-n mobile" v-if="mobile_expanded">
-                <router-link v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</router-link>
+                <RouterLink v-for="route in routes" v-bind:to="route.to" :class="{ pin: route.pin }">{{ route.name }}</RouterLink>
             </div>
         </transition>
     </nav>
@@ -69,12 +69,12 @@ export default {
     border-top-right-radius: 1rem;
 }
 
-.navbar-items a:not(.router-link-active):hover {
+.navbar-items a:not(.RouterLink-active):hover {
     background-color: var(--pal-yellow);
     color: black !important;
 }
 
-.navbar-items a.router-link-active {
+.navbar-items a.RouterLink-active {
     background-color: var(--pal-white);
     color: black !important;
 }

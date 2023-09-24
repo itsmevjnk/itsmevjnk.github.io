@@ -1,10 +1,17 @@
+<script setup>
+import HeaderComp from './components/common/Header.vue';
+import NavbarComp from './components/common/Navbar.vue';
+import FooterComp from './components/common/Footer.vue';
+import { RouterView } from 'vue-router';
+</script>
+
 <template>
-  <comp-header/>
-  <comp-navbar/>
+  <HeaderComp/>
+  <NavbarComp/>
   <main class="container-pad">
-    <router-view></router-view>
+    <RouterView></RouterView>
   </main>
-  <comp-footer/>
+  <FooterComp/>
 </template>
 
 <script>

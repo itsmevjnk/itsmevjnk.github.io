@@ -1,25 +1,25 @@
 <script setup>
-import store from '../info.json';
+import store from '../../info.json';
 </script>
 
 <template>
     <header class="container-pad">
         <div id="header">
-            <img class="avatar" src="../assets/avatar.jpg" alt="Profile picture" v-no-ctx-menu/>
+            <img class="avatar" src="../../assets/avatar.jpg" alt="Profile picture" v-no-ctx-menu/>
             <section>
                 <h1 class="mb0 mt2-l5">{{ store.name }}</h1>
                 <i class="d-block mb2">{{ store.summary }}</i>
                 <ul class="contact-info">
                     <li>
-                        <img class="icon invert" src="../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg" alt="location" v-no-ctx-menu/>
+                        <img class="icon invert" src="../../assets/icons/location_on_FILL0_wght400_GRAD0_opsz48.svg" alt="location" v-no-ctx-menu/>
                         <span>{{ store.address }}</span>
                     </li>
                     <li>
-                        <img class="icon invert" src="../assets/icons/mail_FILL0_wght400_GRAD0_opsz48.svg" alt="mail" v-no-ctx-menu/>
+                        <img class="icon invert" src="../../assets/icons/mail_FILL0_wght400_GRAD0_opsz48.svg" alt="mail" v-no-ctx-menu/>
                         <a v-bind:href="'mailto:' + store.email" class="no-effect">{{ store.email }}</a>
                     </li>
                     <li>
-                        <img class="icon invert" src="../assets/icons/phone_android_FILL0_wght400_GRAD0_opsz48.svg" alt="phone" v-no-ctx-menu/>
+                        <img class="icon invert" src="../../assets/icons/phone_android_FILL0_wght400_GRAD0_opsz48.svg" alt="phone" v-no-ctx-menu/>
                         <template v-for="(item, i) in store.phone">
                             <a v-bind:href="'tel:' + item.number.replaceAll(' ', '')" class="no-effect">{{ item.number }}</a>
                             <span v-if="item.desc !== ''">{{ '&nbsp;(' + item.desc + ')' }}</span>
@@ -27,7 +27,7 @@ import store from '../info.json';
                         </template>
                     </li>
                     <li>
-                        <img class="icon" src="../assets/icons/github-mark-white.svg" alt="GitHub" v-no-ctx-menu/>
+                        <img class="icon" src="../../assets/icons/github-mark-white.svg" alt="GitHub" v-no-ctx-menu/>
                         <a v-bind:href="store.gh_account" class="no-effect" target="_blank">{{ store.gh_account }}</a>
                     </li>
                 </ul>

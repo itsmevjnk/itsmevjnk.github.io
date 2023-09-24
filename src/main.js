@@ -5,20 +5,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
 
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-import Navbar from './components/Navbar.vue'
-
-import AboutMe from './components/AboutMe.vue'
-import Education from './components/Education.vue'
-import Projects from './components/Projects.vue'
-import Resume from './components/Resume.vue'
-import MoreTabs from './components/MoreTabs.vue'
-import List from './components/List.vue'
-import Home from './components/Home.vue'
-import Admin from './components/Admin.vue'
-import Blog from './components/Blog.vue'
-import Skills from './components/Skills.vue'
+import Projects from './views/Projects.vue'
+import Resume from './views/Resume.vue'
+import Home from './views/Home.vue'
+import Admin from './views/Admin.vue'
+import Blog from './views/Blog.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -41,17 +32,5 @@ app.directive('no-ctx-menu', {
         });
     }
 });
-
-app.component('comp-header', Header)
-app.component('comp-footer', Footer)
-app.component('comp-navbar', Navbar)
-
-app.component('comp-aboutme', AboutMe)
-app.component('comp-skills', Skills)
-app.component('comp-edu', Education)
-app.component('comp-projects', Projects)
-
-app.component('comp-list', List)
-app.component('comp-more', MoreTabs)
 
 app.mount('#app')

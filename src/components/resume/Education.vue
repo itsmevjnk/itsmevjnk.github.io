@@ -1,13 +1,15 @@
 <script setup>
-import store from '../info.json';
+import store from '../../info.json';
+import MoreTabs from './MoreTabs.vue';
+import List from './List.vue';
 </script>
 
 <template>
     <section>
         <h2>Education</h2>
-        <comp-list v-bind:list="store.education"/>
+        <List v-bind:list="store.education"/>
     </section>
-    <comp-more/>
+    <MoreTabs/>
 </template>
 
 <script>

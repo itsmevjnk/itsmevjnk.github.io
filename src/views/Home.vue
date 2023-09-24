@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -6,9 +7,9 @@
         <h2>Welcome to my page!</h2>
         <p>This website is still under construction. However, there are still things that you can check out, and I really hope you have a great time visiting this!</p>
         <ul>
-            <li>If you want to see the projects that I have done, head over to the <router-link to="/projects">Projects</router-link> tab.</li>
-            <li>I also have a couple of blog posts over at the <router-link to="/blog">Blog</router-link>, so if they're your thing, you'd better check them out.</li>
-            <li><b>Interested in my CV/resume?</b> Go to the Resume tab above, or use <router-link to="/cv">this link</router-link>.</li>
+            <li>If you want to see the projects that I have done, head over to the <RouterLink to="/projects">Projects</RouterLink> tab.</li>
+            <li>I also have a couple of blog posts over at the <RouterLink to="/blog">Blog</RouterLink>, so if they're your thing, you'd better check them out.</li>
+            <li><b>Interested in my CV/resume?</b> Go to the Resume tab above, or use <RouterLink to="/cv">this link</RouterLink>.</li>
         </ul>
     </section>
     <section class="tech-footer">

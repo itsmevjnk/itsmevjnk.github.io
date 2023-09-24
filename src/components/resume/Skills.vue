@@ -1,5 +1,5 @@
 <script setup>
-import store from '../info.json';
+import store from '../../info.json';
 </script>
 
 <template>

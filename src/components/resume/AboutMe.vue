@@ -1,5 +1,6 @@
 <script setup>
-import store from '../info.json';
+import store from '../../info.json';
+import MoreTabs from './MoreTabs.vue';
 </script>
 
 <template>
@@ -7,7 +8,7 @@ import store from '../info.json';
         <h2>About me</h2>
         <p>{{ store.about }}</p>
     </section>
-    <comp-more/>
+    <MoreTabs/>
 </template>
 
 <script>
